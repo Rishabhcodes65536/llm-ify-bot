@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>Chatbot Playground</title>
@@ -14,7 +14,6 @@
             background: linear-gradient(to right, #000000, #004d00);
             font-family: Arial, sans-serif;
         }
-        
         .container {
             padding: 20px;
             border: 2px solid white;
@@ -103,5 +102,47 @@
         </div>
     </div>
     <script src="script.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <label for="model">Select Model:</label>
+        <select id="model">
+            <option value="TheBloke/Wizard-Vicuna-30B-Superhot-8K-GPTQ">TheBloke/Wizard-Vicuna-30B-Superhot-8K-GPTQ</option>
+        </select>
+        <label for="temperature">Temperature:</label>
+        <input type="range" id="temperature" name="temperature" min="0" max="1" step="0.01" value="0.5">
+        <label for="maxTokens">Max Tokens:</label>
+        <input type="number" id="maxTokens" name="maxTokens" min="0" max="500" value="100">
+        <label for="frequencyPenalty">Frequency Penalty:</label>
+        <input type="range" id="frequencyPenalty" name="frequencyPenalty" min="0" max="1" step="0.01" value="0.5">
+        <label for="persona">Select Persona:</label>
+        <select id="persona">
+            <option value="user">User</option>
+            <option value="assistant">Assistant</option>
+        </select>
+        <label for="prompt">Prompt:</label>
+        <textarea id="prompt" name="prompt" rows="4"></textarea>
+        <div class="buttons-container">
+            <button id="restart">Restart</button>
+            <button id="stop">Stop</button>
+            <button id="clean">Clean</button>
+        </div>
+        <button id="recordButton">Record Voice</button>
+        <button id="run">Run Prompt</button>
+        <div id="response">
+            Response will appear here...
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
